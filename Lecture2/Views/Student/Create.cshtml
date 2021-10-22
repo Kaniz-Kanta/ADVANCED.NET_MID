@@ -1,0 +1,29 @@
+﻿@model Lecture2.Models.Student
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 align="center">Create</h2>
+<!--<h2>Information</h2>
+<h2>Id: @Model.Id</h2>
+<h2>Name: @Model.Name</h2>
+<h2>Dob: @Model.Dob</h2>-->
+<form action="/Student/CreateSubmit" method="post">
+    <table align="center">
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" name="Name" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>Id:</td>
+            <td><input type="text" name="Id" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>DOB:</td>
+            <td><input type="text" name="Dob" class="form-control"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="add" value="Add" class="btn btn-primary"></td>
+        </tr>
+    </table>
+</form>

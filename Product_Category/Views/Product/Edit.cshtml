@@ -1,0 +1,40 @@
+﻿@model Product_Category.Models.Entities.Product
+@{
+    ViewBag.Title = "Edit";
+}
+<h2 align="center"><u>Edit Product</u></h2>
+<form action="/Product/Edit/@Model.Id" method="post">
+    <table align="center">
+        <tr>
+            <td>Product Name:</td>
+            <td>
+                <input type="text" name="ProductName" value="@Model.ProductName" class="form-control"><br>
+                @Html.ValidationMessageFor(m => m.ProductName, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td>
+                <input type="text" name="Quantity" value="@Model.Quantity" class="form-control"><br>
+                @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td>
+                <input type="text" name="Price" value="@Model.Price" class="form-control"><br>
+                @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>
+                <textarea name="Description" value="@Model.Description" class="form-control"></textarea><br>
+                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="update" value="Update" class="btn btn-primary"></td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,36 @@
+﻿@model Lecture3.Models.Entities.Student
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2 align="center">Update</h2>
+
+<form action="/Student/Update" method="post">
+    <table align="center">
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input type="text" name="Name" value="@Model.Name" class="form-control"><br>
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>DOB:</td>
+            <td>
+                <input type="date" name="Dob" value="@Model.Dob" class="form-control"><br>
+                @Html.ValidationMessageFor(m => m.Dob, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                <input type="radio" name="Gender" value="Male">Male
+                <input type="radio" name="Gender" value="Female">Female <br>
+                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="add" value="Add" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>

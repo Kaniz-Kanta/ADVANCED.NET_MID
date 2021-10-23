@@ -1,0 +1,29 @@
+﻿@model List<Lecture3.Models.Entities.Student>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<a Class=" btn btn-primary" href="/Student/Create">Add Student</a>
+<hr>
+<h3 align="center">All Student</h3>
+<table align="center" class="table table-responsive">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Gender</th>
+    </tr>
+    @foreach(var v in Model)
+     {
+        <tr>
+            <td>@v.Id</td>
+            <td>@v.Name</td>
+            <td>@v.Dob</td>
+            <td>@v.Gender</td>
+            <td><a href="/Student/Update/@v.Id" class="btn btn-success">Edit</a></td>
+            <td><a class="btn btn-danger">Delete</a></td>
+        </tr>
+     }
+</table>
+

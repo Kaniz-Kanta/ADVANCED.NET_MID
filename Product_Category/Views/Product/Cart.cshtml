@@ -1,0 +1,37 @@
+﻿@model List<Product_Category.Models.Entities.Product>
+@{
+    ViewBag.Title = "Cart";
+}
+
+<h2 align="center"><u>Your Item List</u></h2>
+@if (Session["Cart_Product"] == null)
+{
+    <p align="center" style="color:steelblue;font-size:x-large"><b>Empty Cart!!!!</b></p>
+}
+else
+{
+    <form action="/Product/Confirm_Order" method="post">
+        <table align="center" class="table table-responsive">
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Description</th>
+            </tr>
+            @foreach (var v in Model)
+            {
+                <tr>
+                    <td>@v.ProductName</td>
+                    <td>@v.Price</td>
+                    <td>@v.Description</td>
+                </tr>
+
+            }
+            <tr>
+                <td colspan="3" align="center">
+                    <input type="submit" name="checkOut" value="CHECK OUT" class="btn btn-primary">
+                </td>
+            </tr>
+        </table>
+    </form>
+}
+

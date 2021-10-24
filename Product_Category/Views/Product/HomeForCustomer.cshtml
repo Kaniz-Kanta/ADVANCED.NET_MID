@@ -1,0 +1,25 @@
+﻿@model List<Product_Category.Models.Entities.Product>
+@{
+    ViewBag.Title = "HomeForCustomer";
+}
+
+<h2 align="center"><u>Products</u></h2>
+<table align="center" class="table table-responsive">
+    <tr>
+        <th>Product Name</th>
+        <th>Quantity Available</th>
+        <th>Price</th>
+        <th>Description</th>
+    </tr>
+    @foreach (var v in Model)
+    {
+        <tr>
+            <td>@v.ProductName</td>
+            <td>@v.Quantity</td>
+            <td>@v.Price</td>
+            <td>@v.Description</td>
+            <td><a href="/product/AddToCart/@v.Id" class="btn btn-success">Add To Cart</a></td>
+        </tr>
+    }
+</table>
+

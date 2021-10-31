@@ -1,0 +1,26 @@
+﻿@model Lecture3.Models.Entities.User
+@{
+    ViewBag.Title = "LogIn";
+}
+
+<h2>LogIn</h2>
+<form action="/Home/LogIn" method="post">
+    <table align="center">
+        <tr>
+            <td>UserName:</td>
+            <td>
+                <input type="text" name="Username" value="Username" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>
+                <input type="text" name="Password" value="Password" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" name="logIn" value="Log In" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+

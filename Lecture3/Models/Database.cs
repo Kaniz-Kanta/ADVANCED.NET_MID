@@ -13,6 +13,7 @@ namespace Lecture3.Models
         public Courses Courses { get; set; }
         public Departments Departments { get; set; }
         public Students Students { get; set; }
+        public Users Users { get; set; }
         public Database()
         {
             string connString = @"Server=DESKTOP-VIHR486\SQLEXPRESS; Database= UMS; Integrated Security=true";
@@ -20,6 +21,7 @@ namespace Lecture3.Models
             Courses = new Courses(connection);
             Students = new Students(connection);
             Departments = new Departments(connection);
+            Users = new Users(connection);
         }
         
     }

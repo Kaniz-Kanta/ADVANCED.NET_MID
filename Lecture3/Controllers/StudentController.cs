@@ -6,12 +6,15 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.SqlClient;
 using Lecture3.Models;
+using Lecture3.Auth;
 
 namespace Lecture3.Controllers
 {
+    [AdminAccess]
     public class StudentController : Controller
     {
         // GET: Student
+        [Authorize]
         public ActionResult Index()
         {
             Database database = new Database();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lecture3.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ namespace Lecture3.Controllers
     {
         public ActionResult Index()
         {
+
             return View();
         }
 
@@ -24,6 +26,22 @@ namespace Lecture3.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        public ActionResult LogIn()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult LogIn(string Username, string Password)
+        {
+            var db = new Database();
+            var user = db.Users.Authentication(Username, Password);
+            if(user!= null)
+            {
+                return RedirectToAction("Index", "Student");
+            }
             return View();
         }
     }

@@ -31,7 +31,37 @@ namespace ORM.Controllers
         }
         public ActionResult Edit(int Id)
         {
-            return View();
+            var db = new UMSEntities();
+            var student = (from s in db.Students
+                           where s.Id==Id
+                           select s).FirstOrDefault();
+            return View(student);
+        }
+        [HttpPost]
+        public ActionResult Edit(Student s)
+        {
+            var db = new UMSEntities();
+            var student = (from sd in db.Students
+                           where sd.Id == s.Id
+                           select sd).FirstOrDefault();
+            /*student.Name = s.Name;
+            student.Dob = s.Dob;
+            student.Gender = s.Gender;
+            db.SaveChanges();*/
+            db.Entry(student).CurrentValues.SetValues(s);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public ActionResult Delete(Student s)
+        {
+            var db = new UMSEntities();
+            var student = (from sd in db.Students
+                           where sd.Id == s.Id
+                           select sd).FirstOrDefault();
+            db.Students.Remove(student);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
